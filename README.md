@@ -1,4 +1,4 @@
-# Betta Fish Tail Types Classification <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/banner-tail-types.jpg" /> 
+# Betta Fish Tail Types Classification <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/banner-tail.JPG" /> 
 
 ## Highlights
 - ข้อ1
@@ -7,12 +7,15 @@
 
 ## Introduction
 
-การทดลองนี้จัดทำขึ้นเพื่อสร้างแบบจำลองที่สามารถแบ่งแยกประเภทของหางปลากัด โดยแบ่งออกเป็น 4 กลุ่ม ซึ่งอาศัยการเก็บรวมรวบรูปภาพของปลากัดที่มีลักษณะหางแตกต่างกันตามกลุ่มที่เราสนใจ มาใช้เป็น input ของแบบจำลอง เพื่อใช้ในการอนุมัติสินเชื่อทางการเงิน  โดยการทดลองนี้มุ่งเน้นการเปรียบเทียบแบบจำลองที่มีความแตกต่างกันระหว่าง traditional machine learning และ deep learning...ยังเป็นการแยกสุนัขของเล่นตามสายพันธุ์อีกด้วย ทำให้ไม่ครอบคลุมสุนัขของเล่นทั้งหมด ทางกลุ่มเราจึงต้องการที่จะสร้าง model ที่สามารถแบ่งแยกระหว่างสุนัขจริง และสุนัขของเล่นได้อย่างมีประสิทธิภาพ
-ด้วยการรวมรวบรูปภาพของสุนัขจริง และสุนัขของเล่นขึ้นมาเพื่อเป็น dataset สำหรับใช้ในการ train model สำหรับแบ่งแยกระหว่างสุนัขจริง และสุนัขของเล่น
+การทดลองนี้จัดทำขึ้นเพื่อสร้างแบบจำลองที่สามารถแบ่งแยกประเภทของหางปลากัด โดยแบ่งออกเป็น 4 กลุ่ม ซึ่งอาศัยการเก็บรวมรวบรูปภาพของปลากัดที่มีลักษณะหางแตกต่างกันตามกลุ่มที่เราสนใจ 
+มาใช้เป็น input dataset ของแบบจำลอง โดยการทดลองนี้มุ่งเน้นการเปรียบเทียบแบบจำลอง-------------
 
 
 ## Data
-ทำการรวบรวมรูปภาพโดยแบ่งเป็น 4 classes คือ 
+
+#### Data source
+Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB67fnempGonKdrPeC84IIjcL?usp=sharing <br />
+รวบรวมรูปภาพของปลากัดที่มีลักษณะหางแตกต่างกันโดยแบ่งเป็น 4 classes ดังนี้ 
 
 | Class Code No.| English Name |
 | :------: | ------ | 
@@ -21,41 +24,31 @@
 | 2 | halfmoon | 
 | 3 | spadetail | 
 
-#### Data source
+#### Data preparation
 
-โดยเราได้ทำการรวบรวมรูปภาพจากเว็บไซต์ต่อไปนี้
-1. www.flickr.com
-2. www.pexels.com
-3. www.pinterest.com
-4. www.pixabay.com
-
-โดยจำนวนรูปภาพที่เราสามารถรวบรวมได้สำหรับแต่ล่ะ class มีจำนวนทั้งหมด 1148 รูป แบ่งเป็น
-- Real Dog: 471 รูป
-- Toy Dog: 677 รูป
+------------------
 
 #### Data pre-processing
 
-รูปภาพทั้งหมดจะถูก preprocess โดยจาก resize ให้อยู่ในขนาด 224 x 224 สำหรับ vgg16, ResNet50 และ 380 x 380 สำหรับ efficientnet-b4 และแปลงให้กลายเป็น array (3-channels)
-จากนั้นจึงนำ array ที่ได้ไปผ่าน function preprocess_input ของ keras ตาม network ที่เลือกใช้ (e.g. vgg16)
+------------------
 
 #### Data Augmentation
 
-เราได้ทำกระบวนการ Data augmentation เพิ่มเติมโดยมีการทำ augment ทั้งหมด 4 แบบดังนี้
+เราได้ทำกระบวนการ Data augmentation เพิ่มเติมโดยมีการทำ augment ทั้งหมด 3 แบบดังนี้
 1. horizontal flip
 2. vertical flip
-3. zoom (zoom_range=0.2)
-4. rotation (rotation_range=20)
+3. rotation (rotation_range=20)
 
 #### Data splitting
     
-เราได้ทำการแบ่ง data ออกเป็น 3 ส่วนดังนี้
+ใช้ strategy โดยการ manual split เพื่อแบ่ง data ออกเป็น 3 ส่วนดังนี้
 - train 50%
 - validation 20%
 - test 30%
 
 ## Network architecture
 
-เราเลือกใช้ pretrained model 32 ตัว ได้แก่ VGG16 ,Efficientnet-B4 และ ResNet50 เป็น model ที่ใช้ในการเปรียบเทียบประสิทธิภาพ และใช้สำหรับทำ feature extraction โดยรายละเอียดของ 3 model จะมีดังนี้
+เราเลือกใช้ pretrained model 32 ตัว ได้แก่ VGG16 ,Efficientnet-B0 และ ResNet50 เป็น model ที่ใช้ในการเปรียบเทียบประสิทธิภาพ และใช้สำหรับทำ feature extraction โดยรายละเอียดของ 3 model จะมีดังนี้
 
 #### VGG16
 
@@ -63,7 +56,7 @@
 
 <img src="https://github.com/teehim/BADS7604_hw2/blob/master/images/vgg_arch.JPG?raw=true" style="width:700px;">
 
-#### EfficientNet-B4
+#### EfficientNet-B0
 
 EfficientNet จะใช้หลักการ Compound Scaling Model ที่จะทำการ Scale Model ในทุกๆ dimension ไปพร้อมๆกัน (depth, width, input resolution)
 โดยที่จะสามารถแบ่ง model ออกเป็น 7 Block ซึ่งในแต่ล่ะ version ของ EfficientNet ส่วนประกอบของแต่ล่ะ Block จะมากน้อยแตกต่างกันไป
@@ -272,9 +265,9 @@ Activation function ในการ classify
 ```
 
 ## Members
-- (25%) 6410422006 กานต์ เกริกชัยวัน   (Prepare dataset + Train and tune --- model + Write --- report)
-- (25%) 6410422010 ชวิศ เตชจินดาวงศ์  (Prepare dataset + Train and tune --- model + Write --- report)
-- (25%) 6410422011 ธาริกา อาจิตรนุภาพ (Prepare dataset + Train and tune --- model + Write --- report)
-- (25%) 6410422028 นทีธร ชุลีกราน     (Prepare dataset + Train and tune --- model + Write --- report)
+- (25%) 6410422006 กานต์ เกริกชัยวัน   (Prepare dataset + Train and tune EfficientNetB0 model + Write --- report)
+- (25%) 6410422010 ชวิศ เตชจินดาวงศ์  (Prepare dataset + Train and tune ResNet50 model + Write --- report)
+- (25%) 6410422011 ธาริกา อาจิตรนุภาพ (Prepare dataset + Train and tune ResNet50 model + Write --- report)
+- (25%) 6410422028 นทีธร ชุลีกราน     (Prepare dataset + Train and tune VGG-16 model + Write --- report)
 
 #### งานชึ้นนี้เป็นส่วนหนึ่งของรายวิชา Deep Learning (DADS7202) หลักสูตรวิทยาศาสตรมหาบัณฑิต สาขาวิชาการวิเคราะห์ข้อมูลและวิทยาการข้อมูล คณะสถิติประยุกต์ สถาบันบัณฑิตพัฒนบริหารศาสตร์
