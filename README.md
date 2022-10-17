@@ -5,13 +5,13 @@
 - ข้อ2
 - ข้อ3
 
-## Introduction
+## 1. Introduction
 
 การทดลองนี้จัดทำขึ้นเพื่อสร้างแบบจำลองที่สามารถแบ่งแยกประเภทของหางปลากัด โดยแบ่งออกเป็น 4 กลุ่ม ซึ่งอาศัยการเก็บรวมรวบรูปภาพของปลากัดที่มีลักษณะหางแตกต่างกันตามกลุ่มที่เราสนใจ 
 มาใช้เป็น input dataset ของแบบจำลอง โดยการทดลองนี้มุ่งเน้นการเปรียบเทียบแบบจำลอง-------------
 
 
-## Data
+## 2. Data
 
 #### Data source
 Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB67fnempGonKdrPeC84IIjcL?usp=sharing <br />
@@ -46,7 +46,7 @@ Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB6
 - validation 20%
 - test 30%
 
-## Network architecture
+## 3. Network architecture
 
 เราเลือกใช้ pretrained model 32 ตัว ได้แก่ VGG16 ,EfficientnetB0 และ ResNet50 เป็น model ที่ใช้ในการเปรียบเทียบประสิทธิภาพ และใช้สำหรับทำ feature extraction โดยรายละเอียดของ 3 model จะมีดังนี้
 
@@ -81,7 +81,7 @@ Activation function ในการ classify
 <img src="https://github.com/teehim/BADS7604_hw2/blob/master/images/resnet.png?raw=true" style="width:700px;">
 
 
-## Training
+## 4. Training
 
 #### Model #1 (VGG16 as Feature Extractor)
 
@@ -119,19 +119,19 @@ Activation function ในการ classify
 
     เวลาที่ใช้ในการ Train 50 วินาที
 
-## Results
+## 5. Results
 
 ------------------
 
-## Discussion
+## 6. Discussion
 
 ------------------
 
-## Conclusion
+## 7. Conclusion
 
 ------------------
 
-## References
+## 8. References
 
 ------------------
 
