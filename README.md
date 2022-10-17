@@ -1,4 +1,4 @@
-# Betta Fish Tail Types Classification <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/banner-tail.JPG" /> 
+# Betta Fish Tail Types Classification <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/banner-betta-tail.JPG" /> 
 
 ## Highlights
 - ข้อ1
