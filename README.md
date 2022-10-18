@@ -30,7 +30,7 @@ Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB6
 
 #### Data pre-processing
 
-------------------
+รูปภาพทั้งหมดจะถูก preprocess โดยจาก resize ให้อยู่ในขนาด 224 x 224 สำหรับ VGG16, ResNet50 และ EfficientNet-B0
 
 #### Data Augmentation
 
