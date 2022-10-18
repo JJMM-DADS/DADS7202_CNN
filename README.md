@@ -1,4 +1,4 @@
-# Betta Fish Tail Types Classification <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/banner-betta-tail.JPG" /> 
+# The pre-trained CNN <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/banner-betta-tail.JPG" /> 
 
 ## Highlights
 - ข้อ1
@@ -30,7 +30,7 @@ Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB6
 
 #### Data pre-processing
 
-รูปภาพทั้งหมดจะถูก preprocess โดยจาก resize ให้อยู่ในขนาด 224 x 224 สำหรับ VGG16, ResNet50 และ EfficientNet-B0
+รูปภาพทั้งหมดจะถูก preprocess ด้วยการ resize ให้อยู่ในขนาด 224 x 224 สำหรับ VGG16, ResNet50 และ EfficientNet-B0
 
 #### Data Augmentation
 
@@ -85,39 +85,45 @@ Activation function ในการ classify
 
 #### Model #1 (VGG16 as Feature Extractor)
 
-    Trained on 1 NVDIA RTX 3080
+    Trained on GPU Tesla T4 
 
+    - Activation function : relu
+    - Dropout rate : 0.5
     - Optimizer: Adam
-    - Learning rate: 0.001
-    - Loss Function: BinaryCrossentropy
-    - Batch size: 64
-    - Epoch: 10
+    - Activation function in Output layer : softmax
+    - Loss Function: Sparse_categorical_crossentropy
+    - Batch size: 15
+    - Epoch: 100
 
-    เวลาที่ใช้ในการ Train 43 วินาที
+    เวลาที่ใช้ในการ Train xx วินาที
 
 #### Model #2 (Efficientnet-B4 as Feature Extractor)
 
-    Trained on 1 NVDIA RTX 3080
+    Trained on GPU Tesla T4 
 
+    - Activation function : relu
+    - Dropout rate : 0.5
     - Optimizer: Adam
-    - Learning rate: 0.001
-    - Loss Function: BinaryCrossentropy
-    - Batch size: 32
-    - Epoch: 10
+    - Activation function in Output layer : softmax
+    - Loss Function: Sparse_categorical_crossentropy
+    - Batch size: 15
+    - Epoch: 100
 
-    เวลาที่ใช้ในการ Train 160 วินาที
+    เวลาที่ใช้ในการ Train xx วินาที
 
 #### Model #3 (ResNet50 as Feature Extractor)
 
-    Trained on 1 NVDIA RTX 3080
+    Trained on GPU Tesla T4 
 
+    - Activation function : relu
+    - Dropout rate : 0.5
     - Optimizer: Adam
-    - Learning rate: 0.001
-    - Loss Function: BinaryCrossentropy
-    - Batch size: 64
-    - Epoch: 10
+    - Activation function in Output layer : softmax
+    - Loss Function: Sparse_categorical_crossentropy
+    - Batch size: 15
+    - Epoch: 100
 
-    เวลาที่ใช้ในการ Train 50 วินาที
+    เวลาที่ใช้ในการ Train xx วินาที
 
 ## 5. Results
 
