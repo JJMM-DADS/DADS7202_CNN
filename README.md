@@ -20,10 +20,10 @@
 
 | Class Code No.| Name | No. of image | Image |
 | :------: | ------ | ------ | ------ |
-| 0 | crowntail | 120 | <img src=" " /> |
-| 1 | double | 124 | <img src=" " /> |
-| 2 | halfmoon | 121 | <img src=" " /> |
-| 3 | spadetail | 122 | <img src=" " /> | 
+| 0 | crowntail | 120 | <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/crowntail.JPG" style="width:120px;" /> |
+| 1 | double | 124 | <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/double.JPG" style="width:120px;" /> |
+| 2 | halfmoon | 121 | <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/halfmoon.JPG" style="width:120px;" /> |
+| 3 | spadetail | 122 | <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/spadetail.JPG" style="width:120px;" /> | 
 |   | **Total** | **487**  |   |
 
 Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB67fnempGonKdrPeC84IIjcL?usp=sharing <br />
@@ -83,7 +83,7 @@ Activation function ในการ classify
 
 <img src="https://github.com/teehim/BADS7604_hw2/blob/master/images/resnet.png?raw=true" style="width:700px;">
 
-ส่วนที่เป็นpretain
+ส่วนที่เป็นpretain Flagmentation
 
 
 ## 4. Training
