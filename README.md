@@ -7,8 +7,8 @@
 
 ## 1. Introduction
 
-การทดลองนี้จัดทำขึ้นเพื่อออกแบบและสร้าง model ที่สามารถจำแนกประเภทของปลากัดตามลักษณะหาง ซึ่งสามารถช่วยให้ง่ายขึ้นในการระบุประเภทได้ โดยไม่ต้องอาศัยประสบการณ์ หรือมีความรู้เกี่ยวกับสายพันธุ์ปลากัดมาก่อน
-โดยแบ่งออกเป็น 4 กลุ่ม คือ `crowntail` `double` `halfmoon` และ `spadetail` 
+การทดลองนี้จัดทำขึ้นเพื่อออกแบบและสร้าง model ที่สามารถจำแนกประเภทของปลากัดตามลักษณะหาง ซึ่งสามารถช่วยให้ง่ายขึ้นในการระบุประเภทได้ โดยไม่ต้องอาศัยประสบการณ์ 
+หรือมีความรู้เกี่ยวกับสายพันธุ์ปลากัดมาก่อน โดยแบ่งออกเป็น 4 กลุ่ม คือ `crowntail` `double` `halfmoon` และ `spadetail` 
 ซึ่งอาศัยการเก็บรวมรวบรูปภาพของปลากัดที่มีลักษณะหางแตกต่างกันตามกลุ่มที่เราสนใจ 
 มาใช้เป็น input dataset ของ model โดยมุ่งเน้นการเปรียบเทียบประสิทธิภาพของ pre-trained model 3 ตัว คือ `VGG16` `EfficientNetB0` และ `ResNet50`
 
@@ -16,15 +16,17 @@
 ## 2. Data
 
 #### Data source
-Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB67fnempGonKdrPeC84IIjcL?usp=sharing <br />
 รวบรวมรูปภาพของปลากัดที่มีลักษณะหางแตกต่างกันโดยแบ่งเป็น 4 classes ดังนี้ 
 
-| Class Code No.| English Name |
-| :------: | ------ | 
-| 0 | crowntail |
-| 1 | double | 
-| 2 | halfmoon | 
-| 3 | spadetail | 
+| Class Code No.| Name | No. of image | Image |
+| :------: | ------ | ------ | ------ |
+| 0 | crowntail | 120 | <img src=" " /> |
+| 1 | double | 124 | <img src=" " /> |
+| 2 | halfmoon | 121 | <img src=" " /> |
+| 3 | spadetail | 122 | <img src=" " /> | 
+|   | **Total** | **487**  |   |
+
+Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB67fnempGonKdrPeC84IIjcL?usp=sharing <br />
 
 #### Data preparation
 
@@ -100,7 +102,7 @@ Activation function ในการ classify
 
     เวลาที่ใช้ในการ Train xx วินาที
 
-#### Model #2 (Efficientnet-B4 as Feature Extractor)
+#### Model #2 (Efficientnet-B0 as Feature Extractor)
 
     Trained on GPU Tesla T4 
 
