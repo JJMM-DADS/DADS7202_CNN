@@ -36,8 +36,7 @@ Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB6
 
 เราได้ทำกระบวนการ Data augmentation เพิ่มเติมโดยมีการทำ augment ทั้งหมด 3 แบบดังนี้
 1. horizontal flip
-2. vertical flip
-3. rotation (rotation_range=20)
+2. rotation (rotation_range=10)
 
 #### Data splitting
     
