@@ -41,9 +41,9 @@ Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB6
 #### Data splitting
     
 ใช้ strategy โดยการ manual split เพื่อแบ่ง data ออกเป็น 3 ส่วนดังนี้
-- train 50%
+- train 60%
 - validation 20%
-- test 30%
+- test 20%
 
 ## 3. Network architecture
 
