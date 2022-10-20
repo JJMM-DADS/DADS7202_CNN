@@ -99,7 +99,7 @@ ResNet (Residual Network)เป็นโมเดลที่พัฒนาข�
 
     เวลาที่ใช้ในการ Train xx วินาที
 
-#### Model #2 (Efficientnet-B0 as Feature Extractor)
+#### Model #2 (EfficientnetB0 as Feature Extractor)
 
     Trained on GPU Tesla T4 
 
@@ -124,8 +124,16 @@ ResNet (Residual Network)เป็นโมเดลที่พัฒนาข�
     - Loss Function: Sparse_categorical_crossentropy
     - Batch size: 15
     - Epoch: 100
+    - No Freeze last 5 layers
 
-    เวลาที่ใช้ในการ Train xx วินาที
+    เวลาที่ใช้ในการ Train 361.84 วินาที
+    
+| Model| Fine Tuning | Train Time (s) |
+| :------: | ------ | ------ |
+| `VGG16` | No Freeze last 2 layers | xxx.xx |
+| `EfficientNetB0` | No Freeze last -- layers | xxx.xx |
+| `ResNet50` | No Freeze last 5 layers | 361.81 |
+
 
 ## 5. Results
 
