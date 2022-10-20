@@ -15,7 +15,7 @@
 
 ## 2. Data
 
-#### 🔹 Data source:
+### 🔹 Data source:
 รวบรวมรูปภาพของปลากัดที่มีลักษณะหางแตกต่างกันโดยแบ่งเป็น 4 classes ดังนี้ 
 
 | Class Code No.| Name | No. of image | Image |
@@ -28,19 +28,19 @@
 
 Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB67fnempGonKdrPeC84IIjcL?usp=sharing <br />
 
-#### 🔹 Data preparation:
+### 🔹 Data preparation:
 
-#### Data pre-processing & Data Augmentation:
+####    Data pre-processing & Data Augmentation:
 
-    รูปภาพที่จากการเก็บรวมรวบจากหลายแหล่ง และแตกต่างสกุลไฟล์จะถูกอ่านด้วย liberty opencv เพื่อให้อยู่ในรูปของ array และ resize เพื่อลดขนาดเป็น 224x 224 pixel 
-    ซึ่งเป็นขนาดมาตรฐานที่ถูกใช้กับ VGG16, ResNet50 และ EfficientNet-B0 โดยใช้เทคนิค INTER_AREA ซึ่งเป็นการสุ่มตัวอย่างโดยใช้ความสัมพันธ์เชิงพื้นที่ของพิกเซล 
-    หลังจากนั้นเข้าสู่กระบวนการ Data Augmentation โดยกำหนดให้มีการสุ่มดำเนินการ 2 operation คือ 
-    1. horizontal flip 
-    2.rotation (rotation_range=10) 
-    และสุดท้ายเพื่อให้ Data set มีการกระจายทุก class ไม่ให้ลำดับติดกันเป็น class เดียวกันทั้งหมด จึงได้คละลำดับของ data set ใหม่อีกครั้ง และนำไปใช้งานต่อในการ train model
+รูปภาพที่เก็บรวมรวบจากหลายแหล่ง และนามสกุลไฟล์ที่แตกต่างจะถูกอ่านด้วย `liberty opencv` เพื่อให้อยู่ในรูปของ array และ resize เพื่อลดขนาดเป็น 224x 224 pixel 
+ซึ่งเป็นขนาดมาตรฐานที่ถูกใช้กับ `VGG16` `ResNet50` และ `EfficientNetB0` โดยใช้เทคนิค INTER_AREA ซึ่งเป็นการสุ่มตัวอย่างโดยใช้ความสัมพันธ์เชิงพื้นที่ของพิกเซล 
+หลังจากนั้นเข้าสู่กระบวนการ Data Augmentation โดยกำหนดให้มีการสุ่มดำเนินการ 2 operation คือ 
+1. horizontal flip 
+2.rotation (rotation_range=10) 
+และสุดท้ายเพื่อให้ Data set มีการกระจายทุก class ไม่ให้ลำดับติดกันเป็น class เดียวกันทั้งหมด จึงได้คละลำดับของ data set ใหม่อีกครั้ง และนำไปใช้งานต่อในการ train model
     
 
-#### 🔹 Data splitting:
+### 🔹 Data splitting:
     
     Data set จะถูก manual split เพื่อแบ่งออกเป็น 3 กลุ่มดังนี้
 
@@ -119,7 +119,60 @@ ResNet (Residual Network)เป็นโมเดลที่พัฒนาข�
 
 ## 5. Results
 
-------------------
+ผลการทดลองเปรียบเทียบ Feature extractor แต่ละ model โดยวัดประสิทธิภาพจากค่า accuracy และ ค่า loss แยกผลเป็น 2 กรณี ดังนี้
+1. กรณี Freeze all feature extractor
+
+#### Model #1 (VGG16)
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_freeze_acc.png" style="width:600px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_freeze_loss.png" style="width:600px;" />
+    
+    accuracy on test set: 0.9026
+
+#### Model #2 (ResNet50)
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_freeze_acc.png" style="width:600px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_freeze_loss.png" style="width:600px;" />
+
+    accuracy on test set: 0.9231
+
+#### Model #3 (EfficientNetB0)
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_freeze.png" style="width:600px;" />
+
+    accuracy on test set: 0.9231
+
+2. กรณี Feature extractor unfreeze last layer
+
+#### Model #1 (VGG16)
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_unfreeze_acc.png" style="width:600px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_unfreeze_loss.png" style="width:600px;" />
+
+    accuracy on test set: 0.9179
+
+#### Model #2 (ResNet50)
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_unfreeze_acc.png" style="width:600px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_unfreeze_loss.png" style="width:600px;" />
+
+    accuracy on test set: 0.9436
+
+#### Model #3 (EfficientNetB0)
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_unfreeze.png" style="width:600px;" />
+
+    👑 accuracy on test set: 0.9589 👑
+
+จากผลการทดลองพบว่า Model #3 `EfficientNetB0` กรณี Feature extractor unfreeze last 4 layers ได้ค่า Accuracy test set ดีที่สุดเป็น 0.9589
+ทำการนำค่า initial random weights ออกเพื่อหาประสิทธิภาพเฉลี่ยได้ผลตามตารางด้านล่าง 
+| No. | 1 | 2 | 3 | 4 | 5 | Mean | SD |
+| :------: | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| Accuracy | 0.9487 | 0.9333 | 0.9282 | 0.9435 | 0.9589 | 0.9425 | 0.0109 |
+
+
+เมื่อนำมาหาค่า F1 – Score ได้ค่าดังนี้ 
+
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/F1score_eff.JPG" style="width:400px;" />
+
+Evaluation metric
+
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/confuse_matrix1.png" style="width:400px;" />
+
 
 ## 6. Discussion
 
