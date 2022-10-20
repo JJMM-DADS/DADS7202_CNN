@@ -55,7 +55,9 @@ Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB6
 
 #### `VGG16`
 
-ในส่วนของ VGG16 จะมี Architecture ดังรูปต่อไปนี้
+จุดเด่นของ VGG16 คือการแทนที่ hyperparameter จำนวนมาก เน้นไปที่การออกแบบ layer conv2D ขนาด 3x3 pixels, 1 stride และการใช้ same padding และ 
+max pooling ขนาด 2x2 pixels, 2 stride แบบเดียวกันตลอดทั้งโครงสร้างของสถาปัตยกรรม ในท้ายที่สุดจะมี 2 FC (fully connected layer) 
+ตามด้วยการใช้ softmax เป็น Activation function ในการ classify สำหรับ output ซึ่งมี architecture ดังนี้
 
 <img src="https://github.com/teehim/BADS7604_hw2/blob/master/images/vgg_arch.JPG?raw=true" style="width:700px;">
 
@@ -124,7 +126,6 @@ ResNet (Residual Network)เป็นโมเดลที่พัฒนาข�
     - Loss Function: Sparse_categorical_crossentropy
     - Batch size: 15
     - Epoch: 100
-    - No Freeze last 5 layers
 
     เวลาที่ใช้ในการ Train 385.72 วินาที
     
