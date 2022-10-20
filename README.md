@@ -184,17 +184,26 @@ Visualizing what CNN learned with Grad-Cam
 
 จากตาราง Confusion matrix และ F1-Score จะพบว่า classที่1 `double` และ classที่2 `halfmoon` มีโอกาสclassifierผิดพลาดสูงกว่า classอื่นๆ ซึ่งเมื่อพิจารณาจากรูป
 
-กรณีที่ 1 ผล classifier ผิดจาก `halfmoon` เป็น `double`
+กรณีที่ 1 ผล classify ผิดจาก `halfmoon` เป็น `double`
 
 <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/predict1-2(1).png" style="width:300px;" /> <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/predict1-2(2).png" style="width:300px;" />
 
-กรณีที่ 2 ผล classifier ผิดจาก `double` เป็น `halfmoon` 
+กรณีที่ 2 ผล classify ผิดจาก `double` เป็น `halfmoon` 
 
 <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/predict2-1(1).png" style="width:300px;" /> <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/predict2-1(2).png" style="width:300px;" />
 
+จากรูปผลการ classify ที่จำแนกผิดพลาด อาจตั้งสมมติฐานได้3กรณี 
+1.ตัวอย่าง testที่ 135และ184 พบว่าในส่วนของหางมีสีที่มีเฉดสีแตกต่างกันค่อนข้างมาก
+2.ตัวอย่าง testที่ 94 พบว่าลักษณะการว่าย ครีบบนแผ่ไปในระนาบเดียวกับหาง ทำให้ modelอาจมองครีบบนเป็นส่วนนึงของหาง
+3.ตัวอย่าง testที่ 120 พบว่าลักษณะของมุมกล้องทำให้เห็นครีบหางทั้ง2ครีบไม่ชัดเจน
+
+จากกราฟ loss validation จะเห็นว่าเมื่อ train epoch รอบท้ายๆจะพบว่า model มี loss validation สูงขึ้นเรื่อยๆ และ loss train มีค่าค่อนข้างคงที่
+แสดงให้เห็นว่าการเพิ่มจำนวน epoch มากจนเกินไป อาจทำให้ modelเกิดการ overfit ได้ แต่อย่างไรก็ตาม weight ของ model ที่ใช้สำหรับวัดค่า 
+acuuracy test set นั้นถูกเก็บไว้ตั้งแต่ epoch ต้นๆแล้ว 
+
 ## 7. Conclusion
 
-------------------
+
 
 ## 8. References
 
