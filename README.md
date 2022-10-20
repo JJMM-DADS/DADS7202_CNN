@@ -15,7 +15,7 @@
 
 ## 2. Data
 
-#### Data source:
+#### 📝 Data source:
 รวบรวมรูปภาพของปลากัดที่มีลักษณะหางแตกต่างกันโดยแบ่งเป็น 4 classes ดังนี้ 
 
 | Class Code No.| Name | No. of image | Image |
@@ -28,21 +28,21 @@
 
 Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB67fnempGonKdrPeC84IIjcL?usp=sharing <br />
 
-#### Data preparation:
+#### 📝 Data preparation:
 
 ------------------
 
-#### Data pre-processing:
+#### 📝 Data pre-processing:
 
 รูปภาพทั้งหมดจะถูก preprocess ด้วยการ resize ให้อยู่ในขนาด 224 x 224 สำหรับ VGG16, ResNet50 และ EfficientNet-B0
 
-#### Data Augmentation:
+#### 📝 Data Augmentation:
 
 เราได้ทำกระบวนการ Data augmentation เพิ่มเติมโดยมีการทำ augment ทั้งหมด 2 แบบ ดังนี้
 1. horizontal flip
 2. rotation (rotation_range=10)
 
-#### Data splitting:
+#### 📝 Data splitting:
     
 ใช้ strategy โดยการ manual split เพื่อแบ่ง data ออกเป็น 3 ส่วน ดังนี้
 - train 60%
@@ -126,13 +126,13 @@ ResNet (Residual Network)เป็นโมเดลที่พัฒนาข�
     - Epoch: 100
     - No Freeze last 5 layers
 
-    เวลาที่ใช้ในการ Train 361.84 วินาที
+    เวลาที่ใช้ในการ Train 385.72 วินาที
     
 | Model| Fine Tuning | Train Time (s) |
 | :------: | ------ | ------ |
 | `VGG16` | No Freeze last 2 layers | xxx.xx |
 | `EfficientNetB0` | No Freeze last -- layers | xxx.xx |
-| `ResNet50` | No Freeze last 5 layers | 361.81 |
+| `ResNet50` | No Freeze last 5 layers | 361.84 |
 
 
 ## 5. Results
