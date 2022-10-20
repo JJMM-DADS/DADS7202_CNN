@@ -64,7 +64,7 @@ Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB6
 max pooling ขนาด 2x2 pixels, 2 stride แบบเดียวกันตลอดทั้งโครงสร้างของสถาปัตยกรรม ในท้ายที่สุดจะมี 2 FC (fully connected layer) 
 ตามด้วยการใช้ softmax เป็น Activation function ในการ classify สำหรับ output ซึ่งมี architecture ดังนี้
 
-<img src="https://github.com/teehim/BADS7604_hw2/blob/master/images/vgg_arch.JPG?raw=true" style="width:700px;">
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_arch.png" style="width:700px;">
 
 #### `EfficientNetB0`
 
@@ -90,7 +90,8 @@ ResNet (Residual Network)เป็นโมเดลที่พัฒนาข�
 
 <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet-arch.png" style="width:700px;" />
 
-ส่วนที่เป็นpretain Flagmentation
+ส่วน Linear Classifier มีการกำหนด dense layer มีจำนวน node เป็น 512 และ กำหนด dropout เป็น 0.5 
+กำหนด output layer เป็น 4 ใช้ Activation function เป็น softmax
 
 
 ## 4. Training
@@ -110,10 +111,10 @@ ResNet (Residual Network)เป็นโมเดลที่พัฒนาข�
 | :------: | ------ | ------ |
 | `VGG16` | Freeze all feature extractor | 503.31 |
 |  | Feature extractor unfreeze last 2 layers | 503.15 |
-| `EfficientNetB0` | Freeze all feature extractor | 213.77 |
-|  | Feature extractor unfreeze last 4 layers | 218.95 |
 | `ResNet50` | Freeze all feature extractor | 385.72 |
 |  | Feature extractor unfreeze last 5 layers | 361.84 |
+| `EfficientNetB0` | Freeze all feature extractor | 213.77 |
+|  | Feature extractor unfreeze last 4 layers | 218.95 |
 
 
 ## 5. Results
