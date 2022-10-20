@@ -209,7 +209,19 @@ acuuracy test set นั้นถูกเก็บไว้ตั้งแต�
 
 ## 8. References
 
-------------------
+#### Dataset
+- https://www.instagram.com/bettaberrythailand/ 
+- https://www.secure.instagram.com/betta.corner.th/ 
+- https://www.secure.instagram.com/plaricebetta_m/ 
+- https://www.secure.instagram.com/nanaabetta/
+- https://www.pinterest.com/bettafishcommunity/
+- https://www.pinterest.com/nataliamaksimovamoiseeva73/
+- https://www.shutterstock.com/search/double-tail-betta
+- http://www.lovebettafish.com/category
+
+#### References 
+- [Complete Architectural Details of all EfficientNet Models | by Vardan Agarwal | Towards Data Science](https://towardsdatascience.com/complete-architectural-details-of-all-efficientnet-models-5fd5b736142)
+- https://towardsdatascience.com/step-by-step-vgg16-implementation-in-keras-for-beginners-a833c686ae6c
 
 
 ## Members
