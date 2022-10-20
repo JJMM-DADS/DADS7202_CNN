@@ -167,16 +167,30 @@ ResNet (Residual Network)เป็นโมเดลที่พัฒนาข�
 
 เมื่อนำมาหาค่า F1 – Score ได้ค่าดังนี้ 
 
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/F1score_eff.JPG" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/F1_score.png" style="width:400px;" />
 
 Evaluation metric
 
 <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/confuse_matrix1.png" style="width:400px;" />
 
+Visualizing what CNN learned with Grad-Cam
+
 
 ## 6. Discussion
 
-------------------
+จากผลการทดลองพบว่า เมื่อเปรียบเทียบ dataset imagenet กับ own dataset พบว่าค่า accuracy เป็นไปในทิศทางเดียวกันซึ่งสามารถแสดงให้เห็นดังตารางนี้
+
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/compare_imagenet.png" style="width:500px;" /> 
+
+จากตาราง Confusion matrix และ F1-Score จะพบว่า classที่1 `double` และ classที่2 `halfmoon` มีโอกาสclassifierผิดพลาดสูงกว่า classอื่นๆ ซึ่งเมื่อพิจารณาจากรูป
+
+กรณีที่ 1 ผล classifier ผิดจาก `halfmoon` เป็น `double`
+
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/predict1-2(1).png" style="width:300px;" /> <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/predict1-2(2).png" style="width:300px;" />
+
+กรณีที่ 2 ผล classifier ผิดจาก `double` เป็น `halfmoon` 
+
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/predict2-1(1).png" style="width:300px;" /> <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/predict2-1(2).png" style="width:300px;" />
 
 ## 7. Conclusion
 
