@@ -15,7 +15,7 @@
 
 ## 2. Data
 
-#### 📝 Data source:
+#### 🔹 Data source:
 รวบรวมรูปภาพของปลากัดที่มีลักษณะหางแตกต่างกันโดยแบ่งเป็น 4 classes ดังนี้ 
 
 | Class Code No.| Name | No. of image | Image |
@@ -28,21 +28,21 @@
 
 Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB67fnempGonKdrPeC84IIjcL?usp=sharing <br />
 
-#### 📝 Data preparation:
+#### 🔹 Data preparation:
 
 ------------------
 
-#### 📝 Data pre-processing:
+#### 🔹 Data pre-processing:
 
 รูปภาพทั้งหมดจะถูก preprocess ด้วยการ resize ให้อยู่ในขนาด 224 x 224 สำหรับ VGG16, ResNet50 และ EfficientNet-B0
 
-#### 📝 Data Augmentation:
+#### 🔹 Data Augmentation:
 
 เราได้ทำกระบวนการ Data augmentation เพิ่มเติมโดยมีการทำ augment ทั้งหมด 2 แบบ ดังนี้
 1. horizontal flip
 2. rotation (rotation_range=10)
 
-#### 📝 Data splitting:
+#### 🔹 Data splitting:
     
 ใช้ strategy โดยการ manual split เพื่อแบ่ง data ออกเป็น 3 ส่วน ดังนี้
 - train 60%
