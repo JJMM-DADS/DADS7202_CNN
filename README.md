@@ -122,43 +122,45 @@ module จะถูกรวมเข้าด้วยกันเพื่อ�
 1. กรณี Freeze all feature extractor
 
 #### Model #1 (VGG16)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_freeze_acc.png" style="width:400px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_freeze_loss.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_freeze_acc.png" style="width:500px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_freeze_loss.png" style="width:500px;" />
     
     accuracy on test set: 0.9026
 
 #### Model #2 (ResNet50)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_freeze_acc.png" style="width:400px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_freeze_loss.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_freeze_acc.png" style="width:500px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_freeze_loss.png" style="width:500px;" />
 
     accuracy on test set: 0.9231
 
 #### Model #3 (EfficientNetB0)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_freeze.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_freeze.png" style="width:500px;" />
 
     accuracy on test set: 0.9231
 
 2. กรณี Feature extractor unfreeze last layer
 
 #### Model #1 (VGG16)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_unfreeze_acc.png" style="width:400px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_unfreeze_loss.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_unfreeze_acc.png" style="width:500px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_unfreeze_loss.png" style="width:500px;" />
 
     accuracy on test set: 0.9179
 
 #### Model #2 (ResNet50)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_unfreeze_acc.png" style="width:400px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_unfreeze_loss.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_unfreeze_acc.png" style="width:500px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_unfreeze_loss.png" style="width:500px;" />
 
     accuracy on test set: 0.9436
 
 #### Model #3 (EfficientNetB0)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_unfreeze.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_unfreeze.png" style="width:500px;" />
 
     👑 accuracy on test set: 0.9589 👑
 
 จากผลการทดลองพบว่า Model #3 `EfficientNetB0` กรณี Feature extractor unfreeze last 4 layers ได้ค่า Accuracy test set ดีที่สุดเป็น 0.9589
 ทำการนำค่า initial random weights ออกเพื่อหาประสิทธิภาพเฉลี่ยได้ผลตามตารางด้านล่าง 
+
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/acc_mean.png" style="width:400px;" />
 | No. | 1 | 2 | 3 | 4 | 5 | Mean | SD |
 | :------: | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | Accuracy | 0.9487 | 0.9333 | 0.9282 | 0.9435 | 0.9589 | 0.9425 | 0.0109 |
@@ -221,6 +223,7 @@ model อื่นถึง2เท่า เพราะจำนวน paramete
 #### References 
 - [Complete Architectural Details of all EfficientNet Models | by Vardan Agarwal | Towards Data Science](https://towardsdatascience.com/complete-architectural-details-of-all-efficientnet-models-5fd5b736142)
 - https://towardsdatascience.com/step-by-step-vgg16-implementation-in-keras-for-beginners-a833c686ae6c
+- https://keras.io/api/applications/
 
 
 ## Members
