@@ -1,6 +1,6 @@
 # The pre-trained CNN <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/banner-betta-tail.JPG" /> 
 
-## Highlights
+## 💎Highlights💎
 - Model `EfficientNetB0` ได้ค่า accuracy เฉลี่ยดีสุดเป็น 94.25% และใช้ระยะเวลาในการ train น้อยกว่า Model `VGG16` และ `ResNet50` ถึง2เท่า
 - การเพิ่มจำนวน epoch มากจนเกินไป อาจทำให้ model เกิดการ overfit ได้
 - class `double` กับ `halfmoon` รูปภาพมีลักษณะที่คล้ายคลึงกันมาก จนทำให้สี มุมกล้อง และลักษณะการว่ายของปลา ส่งผลให้ model มีการจำแนกผิดพลาดได้
@@ -32,9 +32,8 @@ Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB6
 
 ####    Data pre-processing & Data Augmentation:
 
-รูปภาพที่เก็บรวมรวบจากหลายแหล่ง และนามสกุลไฟล์ที่แตกต่างจะถูกอ่านด้วย library `opencv` เพื่อให้อยู่ในรูปของ array และ resize เพื่อลดขนาดเป็น<br />
-224 x 224 pixels ซึ่งเป็นขนาดมาตรฐานที่ถูกใช้กับ `VGG16` `ResNet50` และ `EfficientNetB0` โดยใช้เทคนิค `INTER_AREA` ซึ่งเป็นการสุ่มตัวอย่างโดยใช้<br />
-ความสัมพันธ์เชิงพื้นที่ของพิกเซล หลังจากนั้นเข้าสู่กระบวนการ Data Augmentation โดยกำหนดให้มีการสุ่มดำเนินการ 2 operation คือ 
+รูปภาพที่เก็บรวมรวบจากหลายแหล่ง และนามสกุลไฟล์ที่แตกต่างจะถูกอ่านด้วย library `opencv` เพื่อให้อยู่ในรูปของ array และ resize เพื่อลดขนาดเป็น 224 x 224 pixels ซึ่งเป็นขนาดมาตรฐาน
+ที่ถูกใช้กับ `VGG16` `ResNet50` และ `EfficientNetB0` โดยใช้เทคนิค `INTER_AREA` ซึ่งเป็นการสุ่มตัวอย่างโดยใช้ความสัมพันธ์เชิงพื้นที่ของพิกเซล หลังจากนั้นเข้าสู่กระบวนการ Data Augmentation โดยกำหนดให้มีการสุ่มดำเนินการ 2 operation คือ 
 1. horizontal flip
 2. rotation (rotation_range=10)
 
@@ -123,38 +122,38 @@ module จะถูกรวมเข้าด้วยกันเพื่อ�
 1. กรณี Freeze all feature extractor
 
 #### Model #1 (VGG16)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_freeze_acc.png" style="width:600px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_freeze_loss.png" style="width:600px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_freeze_acc.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_freeze_loss.png" style="width:400px;" />
     
     accuracy on test set: 0.9026
 
 #### Model #2 (ResNet50)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_freeze_acc.png" style="width:600px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_freeze_loss.png" style="width:600px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_freeze_acc.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_freeze_loss.png" style="width:400px;" />
 
     accuracy on test set: 0.9231
 
 #### Model #3 (EfficientNetB0)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_freeze.png" style="width:600px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_freeze.png" style="width:400px;" />
 
     accuracy on test set: 0.9231
 
 2. กรณี Feature extractor unfreeze last layer
 
 #### Model #1 (VGG16)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_unfreeze_acc.png" style="width:600px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_unfreeze_loss.png" style="width:600px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_unfreeze_acc.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_unfreeze_loss.png" style="width:400px;" />
 
     accuracy on test set: 0.9179
 
 #### Model #2 (ResNet50)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_unfreeze_acc.png" style="width:600px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_unfreeze_loss.png" style="width:600px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_unfreeze_acc.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_unfreeze_loss.png" style="width:400px;" />
 
     accuracy on test set: 0.9436
 
 #### Model #3 (EfficientNetB0)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_unfreeze.png" style="width:600px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_unfreeze.png" style="width:400px;" />
 
     👑 accuracy on test set: 0.9589 👑
 
@@ -167,7 +166,7 @@ module จะถูกรวมเข้าด้วยกันเพื่อ�
 
 เมื่อนำมาหาค่า F1 – Score ได้ค่าดังนี้ 
 
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/F1_score.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/F1-score.png" style="width:400px;" />
 
 Evaluation metric
 
@@ -204,8 +203,8 @@ acuuracy test set นั้นถูกเก็บไว้ตั้งแต�
 ## 7. Conclusion
 
 จากการทดลองเราสามารถจำแนกประเภทของปลากัดตามลักษณะหางทั้ง 4 กลุ่มได้ โดยมีค่า accuracy เฉลี่ยเป็น 94.25% จาก pre-trained model `EfficientNetB0` 
-หากพิจารณา ค่า accuracy ของทั้ง 3 models มีความใกล้เคียงกันมาก อยู่ในช่วง 92% ± 2.5% แต่หากเทียบกับระยะเวลาของการ train model จะพบว่าmodel `EfficientNetB0` ใช้ระยะเวลาน้อยกว่า modelอื่นถึง2เท่า 
-เพราะจำนวน parameter ที่น้อยกว่าอย่างมีนัยสำคัญ
+หากพิจารณา ค่า accuracy ของทั้ง 3 models มีความใกล้เคียงกันมาก อยู่ในช่วง 92% ± 2.5% แต่หากเทียบกับระยะเวลาของการ train model จะพบว่าmodel `EfficientNetB0` ใช้ระยะเวลาน้อยกว่า 
+model อื่นถึง2เท่า เพราะจำนวน parameter ที่น้อยกว่าอย่างมีนัยสำคัญ
 
 ## 8. References
 
@@ -225,9 +224,9 @@ acuuracy test set นั้นถูกเก็บไว้ตั้งแต�
 
 
 ## Members
-- (25%) 6410422006 กานต์ เกริกชัยวัน   (Prepare dataset + Train and tune EfficientNetB0 model + Summary the report)
-- (25%) 6410422010 ชวิศ เตชจินดาวงศ์  (Prepare dataset + Train and tune VGG-16 model + Summary the report)
-- (25%) 6410422011 ธาริกา อาจิตรนุภาพ (Prepare dataset + Train and tune ResNet50 model + Summary the report)
-- (25%) 6410422028 นทีธร ชุลีกราน     (Prepare dataset + Train and tune VGG-16 model + Summary the report)
+- (25%) 6410422006 Kan K.   (Prepare dataset + Train and tune EfficientNetB0 model + Summary the report)
+- (25%) 6410422010 Chawit T.  (Prepare dataset + Train and tune VGG-16 model + Summary the report)
+- (25%) 6410422011 Tharika A. (Prepare dataset + Train and tune ResNet50 model + Summary the report)
+- (25%) 6410422028 Nateethon C.     (Prepare dataset + Train and tune VGG-16 model + Summary the report)
 
 #### งานชึ้นนี้เป็นส่วนหนึ่งของรายวิชา Deep Learning (DADS7202) หลักสูตรวิทยาศาสตรมหาบัณฑิต สาขาวิชาการวิเคราะห์ข้อมูลและวิทยาการข้อมูล คณะสถิติประยุกต์ สถาบันบัณฑิตพัฒนบริหารศาสตร์
