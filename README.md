@@ -43,7 +43,7 @@ Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB6
 
 ### 💠 Data splitting:
 
-Dataset จะถูก manual split เพื่อแบ่งออกเป็น 3 กลุ่มดังนี้
+Dataset จะถูก manual split เพื่อแบ่งออกเป็น 3 กลุ่ม ดังนี้
 - train 60%
 - validation 20%
 - test 20%
