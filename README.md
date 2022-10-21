@@ -1,16 +1,16 @@
 # The pre-trained CNN <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/banner-betta-tail.JPG" /> 
 
 ## Highlights
-- Model `EfficientNetB0` ได้ค่า accuracy เฉลี่ยดีสุดเป็น 94.25% และใช้ระยะเวลาในการ train น้อยกว่า model `VGG16` และ `ResNet50` ถึง2เท่า
-- การเพิ่มจำนวน epoch มากจนเกินไป อาจทำให้ modelเกิดการ overfit ได้
-- class `double` กับ `halfmoon` รูปภาพมีลักษณะที่คล้ายคลึงกันมาก จนทำให้สี มุมกล้อง และลักษณะการว่าย ส่งผลให้ model มีการจำแนกผิดพลาดได้
+- Model `EfficientNetB0` ได้ค่า accuracy เฉลี่ยดีสุดเป็น 94.25% และใช้ระยะเวลาในการ train น้อยกว่า Model `VGG16` และ `ResNet50` ถึง2เท่า
+- การเพิ่มจำนวน epoch มากจนเกินไป อาจทำให้ model เกิดการ overfit ได้
+- class `double` กับ `halfmoon` รูปภาพมีลักษณะที่คล้ายคลึงกันมาก จนทำให้สี มุมกล้อง และลักษณะการว่ายของปลา ส่งผลให้ model มีการจำแนกผิดพลาดได้
 
 ## 1. Introduction
 
 การทดลองนี้จัดทำขึ้นเพื่อออกแบบและสร้าง model ที่สามารถจำแนกประเภทของปลากัดตามลักษณะหาง ซึ่งสามารถช่วยให้ระบุประเภทได้ง่ายขึ้น โดยไม่ต้องอาศัยประสบการณ์ 
 หรือมีความรู้เกี่ยวกับสายพันธุ์ปลากัดมาก่อน แบ่งออกเป็น 4 กลุ่ม ได้แก่ `crowntail` `double` `halfmoon` และ `spadetail` 
-ซึ่งอาศัยการเก็บรวบรวมรูปภาพของปลากัดที่มีลักษณะหางแตกต่างกันตามกลุ่มที่เราสนใจ 
-มาใช้เป็น input dataset ของ model โดยมุ่งเน้นการเปรียบเทียบประสิทธิภาพของ pre-trained model 3 ตัว คือ `VGG16` `EfficientNetB0` และ `ResNet50`
+ซึ่งอาศัยการเก็บรวบรวมรูปภาพของปลากัดที่มีลักษณะหางแตกต่างกันตามกลุ่มที่เราสนใจ มาใช้เป็น input dataset ของ model 
+โดยมุ่งเน้นการเปรียบเทียบประสิทธิภาพของ pre-trained model 3 ตัว คือ `VGG16` `ResNet50` และ `EfficientNetB0`
 
 
 ## 2. Data
@@ -32,11 +32,11 @@ Link to download the dataset: https://drive.google.com/drive/folders/17hkb_RNuB6
 
 ####    Data pre-processing & Data Augmentation:
 
-รูปภาพที่เก็บรวมรวบจากหลายแหล่ง และนามสกุลไฟล์ที่แตกต่างจะถูกอ่านด้วย `liberty opencv` เพื่อให้อยู่ในรูปของ array และ resize เพื่อลดขนาดเป็น 224x 224 pixel 
-ซึ่งเป็นขนาดมาตรฐานที่ถูกใช้กับ `VGG16` `ResNet50` และ `EfficientNetB0` โดยใช้เทคนิค INTER_AREA ซึ่งเป็นการสุ่มตัวอย่างโดยใช้ความสัมพันธ์เชิงพื้นที่ของพิกเซล 
+รูปภาพที่เก็บรวมรวบจากหลายแหล่ง และนามสกุลไฟล์ที่แตกต่างจะถูกอ่านด้วย library `opencv` เพื่อให้อยู่ในรูปของ array และ resize เพื่อลดขนาดเป็น
+224 x 224 pixel ซึ่งเป็นขนาดมาตรฐานที่ถูกใช้กับ `VGG16` `ResNet50` และ `EfficientNetB0` โดยใช้เทคนิค `INTER_AREA` ซึ่งเป็นการสุ่มตัวอย่างโดยใช้ความสัมพันธ์เชิงพื้นที่ของพิกเซล 
 หลังจากนั้นเข้าสู่กระบวนการ Data Augmentation โดยกำหนดให้มีการสุ่มดำเนินการ 2 operation คือ 
-1. horizontal flip 
-2.rotation (rotation_range=10) 
+1. horizontal flip
+2. rotation (rotation_range=10)
 และสุดท้ายเพื่อให้ Data set มีการกระจายทุก class ไม่ให้ลำดับติดกันเป็น class เดียวกันทั้งหมด จึงได้คละลำดับของ data set ใหม่อีกครั้ง และนำไปใช้งานต่อในการ train model
     
 
