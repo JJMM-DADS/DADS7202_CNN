@@ -62,7 +62,7 @@ Dataset จะถูก manual split เพื่อแบ่งออกเป�
 max pooling ขนาด 2x2 pixels, 2 stride แบบเดียวกันตลอดทั้งโครงสร้างของสถาปัตยกรรม ในท้ายที่สุดจะมี 2 FC (fully connected layer) 
 ตามด้วยการใช้ softmax เป็น Activation function ในการ classify สำหรับ output ซึ่งมี architecture ดังนี้
 
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_arch.png" style="width:700px;">
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_arch.png" style="width:500px;">
 
 ### `ResNet50`
 
@@ -70,7 +70,7 @@ ResNet (Residual Network)เป็นโมเดลที่พัฒนาข�
 โดยใช้ Algorithm ที่เรียกว่า Skip Connections ที่สามารถส่งผ่าน Gradient ข้ามไปยัง Layer ต่างๆที่ต้องการได้
 ไม่ต้องส่งผ่านแบบ sequential แบบ CNN ซึ่งมี architecture ดังนี้
 
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet-arch.png" style="width:700px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet-arch.png" style="width:500px;" />
 
 ### `EfficientNetB0`
 
@@ -78,15 +78,15 @@ EfficientNet จะใช้หลักการในการ Scale Model ใ
 Block แต่ละตัวมีจำนวน sub-block ที่แตกต่างกันซึ่งมีจำนวนเพิ่มขึ้นตามความDeep และ Wide ของโมเดล โดยเริ่มจาก EfficientNet-B0 จะมีlayer 237 ไปจนถึง EfficientNet-B7 ที่จะมีถึง 813 layer
 ซึ่งlayerเหล่านี้จะสร้างมาจาก 5 module ด้านล่าง
 
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_arch1.png" style="width:700px;">
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_arch1.png" style="width:500px;">
 
 module จะถูกรวมเข้าด้วยกันเพื่อสร้าง sub-block ซึ่งจะถูกนำไปใช้เป็นส่วนประกอบในแต่ละ block
 
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_arch2.png" style="width:700px;">
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_arch2.png" style="width:500px;">
 
 โดยทั้งนี้ EfficientNet-B0 จะมี architecture ดังรูปต่อไปนี้
 
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_arch3.png" style="width:700px;">
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_arch3.png" style="width:500px;">
 
 
 ส่วน Linear Classifier มีการกำหนด dense layer มีจำนวน node เป็น 512 และ กำหนด dropout เป็น 0.5 
@@ -160,15 +160,11 @@ module จะถูกรวมเข้าด้วยกันเพื่อ�
 จากผลการทดลองพบว่า Model #3 `EfficientNetB0` กรณี Feature extractor unfreeze last 4 layers ได้ค่า Accuracy test set ดีที่สุดเป็น 0.9589
 ทำการนำค่า initial random weights ออกเพื่อหาประสิทธิภาพเฉลี่ยได้ผลตามตารางด้านล่าง 
 
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/acc_mean.png" style="width:400px;" />
-| No. | 1 | 2 | 3 | 4 | 5 | Mean | SD |
-| :------: | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| Accuracy | 0.9487 | 0.9333 | 0.9282 | 0.9435 | 0.9589 | 0.9425 | 0.0109 |
-
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/acc_mean.png" style="width:500px;" />
 
 เมื่อนำมาหาค่า F1 – Score ได้ค่าดังนี้ 
 
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/F1-score.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/F1-score.png" style="width:500px;" />
 
 Evaluation metric
 
@@ -176,6 +172,9 @@ Evaluation metric
 
 Visualizing what CNN learned with Grad-Cam
 
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam1.png" style="width:400px;" /><img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam2.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam3.png" style="width:400px;" /><img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam4.png" style="width:400px;" />
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam5.png" style="width:400px;" />
 
 ## 6. Discussion
 
@@ -219,6 +218,7 @@ model อื่นถึง2เท่า เพราะจำนวน paramete
 - https://www.pinterest.com/nataliamaksimovamoiseeva73/
 - https://www.shutterstock.com/search/double-tail-betta
 - http://www.lovebettafish.com/category
+- https://www.facebook.com/JustBettaSG/photos/?ref=page_internal
 
 #### References 
 - [Complete Architectural Details of all EfficientNet Models | by Vardan Agarwal | Towards Data Science](https://towardsdatascience.com/complete-architectural-details-of-all-efficientnet-models-5fd5b736142)
