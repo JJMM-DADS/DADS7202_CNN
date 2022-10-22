@@ -124,41 +124,11 @@ module จะถูกรวมเข้าด้วยกันเพื่อ�
 ผลการทดลองเปรียบเทียบ Feature extractor แต่ละ model โดยวัดประสิทธิภาพจากค่า accuracy และค่า loss แยกผลเป็น 2 กรณี ดังนี้
 ### 5.1) กรณี Freeze all feature extractor
 
-#### 🔹 5.1.1) Model #1 (VGG16)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_freeze_acc.png" style="width:500px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_freeze_loss.png" style="width:500px;" />
-    
-    accuracy on test set: 0.9026
-
-#### 🔹 5.1.2) Model #2 (ResNet50)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_freeze_acc.png" style="width:500px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_freeze_loss.png" style="width:500px;" />
-
-    accuracy on test set: 0.9231
-
-#### 🔹 5.1.3) Model #3 (EfficientNetB0)
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_freeze.png" style="width:500px;" />
-
-    accuracy on test set: 0.9231
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/result_freeze.JPG" />
 
 ### 5.2) กรณี Feature extractor unfreeze last layer
 
-#### 🔹 5.2.1) Model #1 (VGG16): Feature extractor unfreeze last 2 layers
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_unfreeze_acc.png" style="width:500px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/vgg16_unfreeze_loss.png" style="width:500px;" />
-
-    accuracy on test set: 0.9179
-
-#### 🔹 5.2.2) Model #2 (ResNet50): Feature extractor unfreeze last 5 layers
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_unfreeze_acc.png" style="width:500px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/resnet_unfreeze_loss.png" style="width:500px;" />
-
-    accuracy on test set: 0.9436
-
-#### 🔹 5.2.3) Model #3 (EfficientNetB0): Feature extractor unfreeze last 4 layers
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/eff_unfreeze.png" style="width:500px;" />
-
-    👑 accuracy on test set: 0.9589 👑
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/result_unfreeze1.JPG" />
 
 🔅 จากผลการทดลองพบว่า Model #3 `EfficientNetB0` กรณี Feature extractor unfreeze last 4 layers ได้ค่า Accuracy test set ดีที่สุดเป็น 0.9589
 หลังจากนั้นทำการนำค่า initial random weights ออกเพื่อหาประสิทธิภาพเฉลี่ย ได้ผลตามตารางด้านล่าง 
@@ -178,10 +148,22 @@ module จะถูกรวมเข้าด้วยกันเพื่อ�
 <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/confuse_matrix1.png" style="width:400px;" />
 
 ### 🔅 Visualizing what CNN learned with Grad-Cam
+เพื่อให้มั่นใจได้ว่า Convolutional Neural Network (CNN) ได้เรียนรู้จากคุณลักษณะสิ่งที่จำแนกได้อย่างถูกต้อง จึงใช้วิธีการตรวจสอบแบบ Gradient-weighted Class Activation Mapping (Grad-CAM) 
+ซึ่งจะแสดงให้เห็นว่า CNN นั้นมีจุดที่ให้ความสำคัญในส่วนใดของภาพ เพื่อใช้จำแนกประเภทของปลากัดตามลักษณะหาง โดยจะแสดงในลักษณะของ Heat map 
 
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam5.png" style="width:400px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam1.png" style="width:400px;" />          <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam2.png" style="width:400px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam3.png" style="width:400px;" />          <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam4.png" style="width:400px;" />
+`Grad-CAM` ช่วยให้เราสามารถพอจะอธิบายได้ว่าผลการจำแนกจาก CNN ล้มเหลวหรือสำเร็จได้อย่างไร จากผลที่แสดงให้เห็นจาก Grad-CAM เราได้ทดลองนำรูปภาพปลากัดแต่ละกลุ่มตาม test set ดังรูปด้านล่าง
+
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam_1.JPG" style="width:500px;" />
+
+ซึ่งผลการที่ได้จากกระบวนการ `Grad-CAM` แบ่งแยกเป็นผลแต่ละ class ได้ดังนี้
+
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam.JPG" style="width:900px;" />
+
+พบว่า model ให้ความสำคัญในการจำแนกบริเวณตัวและหางของปลากัด แต่ยังคงมีบ้างรูปที่ model ไปให้ความสำคัญที่หางแล้ว แต่พบว่าสดและเข้มกว่า หรือบริเวณขอบของรูปจึงจำแนกผิด แสดงให้เห็นได้ดังภาพด้านล่าง
+
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam_6.png" style="width:350px;" />         <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam_7.png" style="width:500px;" />
+
+ซึ่งจากกระบวนการ `Grad-CAM` สามารถทำให้พอจะอธิบายได้ว่า CNN อาจจำแนกล้มเหลวได้อย่างไรในเบื้องต้น
 
 ## 6. Discussion
 
