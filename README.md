@@ -176,9 +176,9 @@ module จะถูกรวมเข้าด้วยกันเพื่อ�
 
 ### Visualizing what CNN learned with Grad-Cam
 
+<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam5.png" style="width:400px;" />
 <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam1.png" style="width:400px;" />          <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam2.png" style="width:400px;" />
 <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam3.png" style="width:400px;" />          <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam4.png" style="width:400px;" />
-<img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/gradcam5.png" style="width:400px;" />
 
 ## 6. Discussion
 
