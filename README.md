@@ -173,11 +173,11 @@ module จะถูกรวมเข้าด้วยกันเพื่อ�
 
 💡 จากตาราง Confusion matrix และ F1-Score จะพบว่า classที่1 `double` และ classที่2 `halfmoon` มีโอกาส classify ผิดพลาดสูงกว่า class อื่นๆ ซึ่งแยกผลการ classify ผิดได้ ดังนี้
 
-กรณีที่ 1 ผล classify ผิดจาก `halfmoon` เป็น `double`
+▪️ กรณีที่ 1 ผล classify ผิดจาก `halfmoon` เป็น `double`
 
 <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/predict1-2(1).png" style="width:300px;" /> <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/predict1-2(2).png" style="width:300px;" />
 
-กรณีที่ 2 ผล classify ผิดจาก `double` เป็น `halfmoon` 
+▪️ กรณีที่ 2 ผล classify ผิดจาก `double` เป็น `halfmoon` 
 
 <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/predict2-1(1).png" style="width:300px;" /> <img src="https://github.com/JJMM-DADS/DADS7202_CNN/blob/main/images/predict2-1(2).png" style="width:300px;" />
 
